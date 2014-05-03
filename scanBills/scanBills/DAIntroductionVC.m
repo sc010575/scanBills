@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Suman Chatterjee. All rights reserved.
 //
 
-#import "DAViewController.h"
+#import "DAIntroductionVC.h"
 
-@interface DALaunchVC ()
+@interface DAIntroductionVC ()
 
 @end
 
-@implementation DALaunchVC
+@implementation DAIntroductionVC
 
 #pragma mark - view controller methods
 - (void)viewDidLoad

@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DALaunchVC : UIViewController
+@interface DAIntroductionVC : UIViewController
 
 @end
