@@ -1,0 +1,16 @@
+PODS:
+  - JASidePanels (1.3.2)
+  - KCOrderedAccessorFix (0.0.1)
+  - MagicalRecord/Shorthand (2.2)
+
+DEPENDENCIES:
+  - JASidePanels
+  - KCOrderedAccessorFix
+  - MagicalRecord/Shorthand
+
+SPEC CHECKSUMS:
+  JASidePanels: c0e642a7311ec9cc9adfa616fa4a795e4e169f20
+  KCOrderedAccessorFix: 41f03a81a769ff61c56a2fd8f578d13d1f64d765
+  MagicalRecord: 95d49d74ef752cd52f6ad87bcb474817fc3978cf
+
+COCOAPODS: 0.32.1
