@@ -77,7 +77,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="backBtnPressed:" destination="27P-uj-6I7" eventType="touchUpInside" id="aeA-Ig-ovz"/>
                                     <segue destination="vXZ-lx-hvc" kind="push" id="p6p-Eg-Nyu"/>
                                 </connections>
                             </button>

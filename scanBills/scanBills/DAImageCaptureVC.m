@@ -7,6 +7,7 @@
 //
 
 #import "DAImageCaptureVC.h"
+#import <UIKit/UIView.h>
 #import <ImageIO/CGImageProperties.h>
 #import <AVFoundation/AVFoundation.h>
 
@@ -119,7 +120,7 @@
     // Pass the selected object to the new view controller.
 }
 */
-#pragma mark - button events
+#pragma mark - button action events
 
 
 - (IBAction)captureImage:(id)sender {

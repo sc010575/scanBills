@@ -1,4 +1,6 @@
 scanBills
 =========
 
-scan your bills so that you have a prof of your bill and get secured 
+Scan your bills so that you could have a proof of your bill and get secured.
+
+
