@@ -10,6 +10,7 @@
 #import <UIKit/UIView.h>
 #import <ImageIO/CGImageProperties.h>
 #import <AVFoundation/AVFoundation.h>
+#import "DASaveMyBillsVC.h"
 
 @interface DAImageCaptureVC ()
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
@@ -17,8 +18,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (strong, nonatomic) AVCaptureSession *session;
 @property (strong, nonatomic) AVCaptureStillImageOutput *stillImageOutput;
+@property (strong, nonatomic) UIImage * scannedImage;
 
-- (IBAction)captureImage:(id)sender;
+- (IBAction)captureImage:(id) sender;
 
 @end
 
@@ -93,6 +95,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [self stopCamera];
+    self.scannedImage = nil;
     [super viewWillDisappear:YES];
 }
 
@@ -100,6 +103,7 @@
 {
     [super viewWillAppear:animated];
     self.navigationController.navigationBarHidden = YES;
+    self.scannedImage = nil;
     [self startCamera];
 }
 
@@ -110,20 +114,10 @@
 }
 
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 #pragma mark - button action events
 
 
-- (IBAction)captureImage:(id)sender {
+- (IBAction)captureImage:(id) sender{
     AVCaptureConnection *videoConnection = nil;
     for (AVCaptureConnection *connection in self.stillImageOutput.connections)
     {
@@ -143,15 +137,44 @@
     [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error)
      {
          CFDictionaryRef exifAttachments = CMGetAttachment( imageSampleBuffer, kCGImagePropertyExifDictionary, NULL);
-         
+         if(imageSampleBuffer != nil){
          NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
-         UIImage *image = [[UIImage alloc] initWithData:imageData];
+         self.scannedImage = [[UIImage alloc] initWithData:imageData];
+         [self performSegueWithIdentifier:@"saveMyBill" sender:sender];
+         }
          
-//         photo.image = [[UIImage alloc] init ];
-//         photo.image = image;
-//         photo.photoFromCamera = YES;
-//         
-//         [self.navigationController pushViewController:photo animated:NO];
      }];
 }
+
+
+
+ #pragma mark - Navigation
+
+- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
+{
+if ([identifier isEqualToString:@"saveMyBill"])
+{
+    return (self.scannedImage != nil)?YES:NO;
+}
+    return YES;
+}
+
+
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+     NSString *segueIdentifier = [segue identifier];
+
+     if ([segueIdentifier isEqualToString:@"saveMyBill"])
+     {
+      if (self.scannedImage != nil)
+      {
+        DASaveMyBillsVC *saveMyBillVC = segue.destinationViewController;
+         saveMyBillVC.imageToDisplay = self.scannedImage;
+      }
+         
+     }
+ }
+
+
 @end

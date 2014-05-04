@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		C517F0571915388D00ED3E07 /* Mogenerator */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = C517F0581915388D00ED3E07 /* Build configuration list for PBXAggregateTarget "Mogenerator" */;
+			buildPhases = (
+				C517F05B191538B500ED3E07 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = Mogenerator;
+			productName = Mogenerator;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		34955CD29975477FAC2BC405 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2184D228FEE84A2D91775A7D /* libPods.a */; };
 		C517F01519150C2C00ED3E07 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C517F01419150C2C00ED3E07 /* Foundation.framework */; };
@@ -25,6 +39,8 @@
 		C517F04319150C2C00ED3E07 /* scanBillsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C517F04219150C2C00ED3E07 /* scanBillsTests.m */; };
 		C517F05019150F7300ED3E07 /* DAImageCaptureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C517F04F19150F7300ED3E07 /* DAImageCaptureVC.m */; };
 		C517F0561915298600ED3E07 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C517F0551915298600ED3E07 /* AVFoundation.framework */; };
+		C517F0651915594B00ED3E07 /* scanBills.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C517F0631915594B00ED3E07 /* scanBills.xcdatamodeld */; };
+		C517F06819159CE000ED3E07 /* DASaveMyBillsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C517F06719159CE000ED3E07 /* DASaveMyBillsVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +79,9 @@
 		C517F04E19150F7300ED3E07 /* DAImageCaptureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAImageCaptureVC.h; sourceTree = "<group>"; };
 		C517F04F19150F7300ED3E07 /* DAImageCaptureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAImageCaptureVC.m; sourceTree = "<group>"; };
 		C517F0551915298600ED3E07 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C517F0641915594B00ED3E07 /* scanBills.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = scanBills.xcdatamodel; sourceTree = "<group>"; };
+		C517F06619159CE000ED3E07 /* DASaveMyBillsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DASaveMyBillsVC.h; sourceTree = "<group>"; };
+		C517F06719159CE000ED3E07 /* DASaveMyBillsVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DASaveMyBillsVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +113,7 @@
 		C517F00819150C2C00ED3E07 = {
 			isa = PBXGroup;
 			children = (
+				C517F0621915594B00ED3E07 /* Model */,
 				C517F01A19150C2C00ED3E07 /* scanBills */,
 				C517F03C19150C2C00ED3E07 /* scanBillsTests */,
 				C517F01319150C2C00ED3E07 /* Frameworks */,
@@ -190,8 +210,19 @@
 				C517F02D19150C2C00ED3E07 /* DAIntroductionVC.m */,
 				C517F04E19150F7300ED3E07 /* DAImageCaptureVC.h */,
 				C517F04F19150F7300ED3E07 /* DAImageCaptureVC.m */,
+				C517F06619159CE000ED3E07 /* DASaveMyBillsVC.h */,
+				C517F06719159CE000ED3E07 /* DASaveMyBillsVC.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		C517F0621915594B00ED3E07 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C517F0631915594B00ED3E07 /* scanBills.xcdatamodeld */,
+			);
+			name = Model;
+			path = scanBills/Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +295,7 @@
 			targets = (
 				C517F01019150C2C00ED3E07 /* scanBills */,
 				C517F03419150C2C00ED3E07 /* scanBillsTests */,
+				C517F0571915388D00ED3E07 /* Mogenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -321,6 +353,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		C517F05B191538B500ED3E07 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/mogenerator -m scanBills/Model/scanBills.xcdatamodeld/scanBills.xcdatamodel -O scanBills/Model --template-var arc=true";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -329,9 +374,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C517F02119150C2C00ED3E07 /* main.m in Sources */,
+				C517F06819159CE000ED3E07 /* DASaveMyBillsVC.m in Sources */,
 				C517F02E19150C2C00ED3E07 /* DAIntroductionVC.m in Sources */,
 				C517F05019150F7300ED3E07 /* DAImageCaptureVC.m in Sources */,
 				C517F02519150C2C00ED3E07 /* DAAppDelegate.m in Sources */,
+				C517F0651915594B00ED3E07 /* scanBills.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -529,6 +576,20 @@
 			};
 			name = Release;
 		};
+		C517F0591915388D00ED3E07 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C517F05A1915388D00ED3E07 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -559,7 +620,28 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		C517F0581915388D00ED3E07 /* Build configuration list for PBXAggregateTarget "Mogenerator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C517F0591915388D00ED3E07 /* Debug */,
+				C517F05A1915388D00ED3E07 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		C517F0631915594B00ED3E07 /* scanBills.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				C517F0641915594B00ED3E07 /* scanBills.xcdatamodel */,
+			);
+			currentVersion = C517F0641915594B00ED3E07 /* scanBills.xcdatamodel */;
+			path = scanBills.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = C517F00919150C2C00ED3E07 /* Project object */;
 }
