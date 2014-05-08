@@ -8,49 +8,41 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-KCOrderedAccessorFix.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-MagicalRecord.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>8BFA5462FF1F4C6B8248BEA7</key>
+		<key>9FC521E0F8234A89BDE26FE8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A88DF0FAB620418F9EAF2294</key>
+		<key>C2C735BB431E498CA070851E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E898DAB4DD20447C9FC67850</key>
+		<key>CBA57B8938FC438493A54639</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F568AFB71F9043B898AE5979</key>
+		<key>D03A74F61EFE470590DF771F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
