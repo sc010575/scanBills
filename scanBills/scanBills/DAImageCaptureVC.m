@@ -15,7 +15,6 @@
 @interface DAImageCaptureVC ()
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
 @property (weak, nonatomic) IBOutlet UIButton *scanBtn;
-@property (weak, nonatomic) IBOutlet UIButton *backBtn;
 @property (strong, nonatomic) AVCaptureSession *session;
 @property (strong, nonatomic) AVCaptureStillImageOutput *stillImageOutput;
 @property (strong, nonatomic) UIImage * scannedImage;
@@ -43,7 +42,6 @@
     self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
 	[self.view.layer addSublayer:self.previewLayer];
     [self.view bringSubviewToFront:self.scanBtn];
-    [self.view bringSubviewToFront:self.backBtn];
 	
 	// Get the default camera device
 	AVCaptureDevice* camera = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
@@ -102,7 +100,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.navigationController.navigationBarHidden = YES;
     self.scannedImage = nil;
     [self startCamera];
 }

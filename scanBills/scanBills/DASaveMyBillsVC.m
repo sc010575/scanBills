@@ -42,7 +42,14 @@
     self.storeName.delegate = self;
     self.billTitle.delegate = self;
     self.description.delegate = self;
-    // Do any additional setup after loading the view.
+    [[NSNotificationCenter defaultCenter] addObserverForName:NOTIFICATION_STORE_CREATED object:nil queue:nil usingBlock:^(NSNotification *note) {
+        NSLog(@"record created successfully");
+        self.storeName.text = @"";
+        self.description.text = @"";
+        self.billTitle.text = @"";
+        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+     }];
 }
 
 - (void) viewDidAppear:(BOOL)animated
@@ -75,7 +82,7 @@
 
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
-    if([self.storeName.text length] != 0 || [self.billTitle.text length] != 0 )
+    if([self.storeName.text length] != 0 && [self.billTitle.text length] != 0 )
         self.saveBtn.enabled = YES;
 }
 
@@ -86,7 +93,4 @@
     [DACoreDataHandler createNewStore:self.storeName.text andBill:self.billTitle.text description:self.description.text withImage:UIImagePNGRepresentation(self.storeImage.image)];
 }
 
-- (IBAction)onCancelAction:(id)sender {
-    [self performSegueWithIdentifier:@"goBackCamera" sender:sender];
-}
 @end

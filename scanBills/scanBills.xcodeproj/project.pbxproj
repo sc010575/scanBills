@@ -47,6 +47,8 @@
 		C517F0741916BC7D00ED3E07 /* StoreMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = C517F0701916BC7D00ED3E07 /* StoreMaster.m */; };
 		C517F0771917974F00ED3E07 /* DACoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C517F0761917974F00ED3E07 /* DACoreDataHandler.m */; };
 		C5A82E47191F63E500F4D9AB /* NSManagedObjectContext+ContextSwitching.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A82E45191F63E400F4D9AB /* NSManagedObjectContext+ContextSwitching.m */; };
+		C5A82E4A191F708700F4D9AB /* DAStoreListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A82E49191F708700F4D9AB /* DAStoreListVC.m */; };
+		C5A82E4D191F9C6E00F4D9AB /* DAShowAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A82E4C191F9C6E00F4D9AB /* DAShowAlert.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +102,10 @@
 		C517F0761917974F00ED3E07 /* DACoreDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACoreDataHandler.m; sourceTree = "<group>"; };
 		C5A82E45191F63E400F4D9AB /* NSManagedObjectContext+ContextSwitching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+ContextSwitching.m"; sourceTree = "<group>"; };
 		C5A82E46191F63E400F4D9AB /* NSManagedObjectContext+ContextSwitching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+ContextSwitching.h"; sourceTree = "<group>"; };
+		C5A82E48191F708700F4D9AB /* DAStoreListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAStoreListVC.h; sourceTree = "<group>"; };
+		C5A82E49191F708700F4D9AB /* DAStoreListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAStoreListVC.m; sourceTree = "<group>"; };
+		C5A82E4B191F9C6E00F4D9AB /* DAShowAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAShowAlert.h; sourceTree = "<group>"; };
+		C5A82E4C191F9C6E00F4D9AB /* DAShowAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAShowAlert.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +236,10 @@
 				C517F04F19150F7300ED3E07 /* DAImageCaptureVC.m */,
 				C517F06619159CE000ED3E07 /* DASaveMyBillsVC.h */,
 				C517F06719159CE000ED3E07 /* DASaveMyBillsVC.m */,
+				C5A82E48191F708700F4D9AB /* DAStoreListVC.h */,
+				C5A82E49191F708700F4D9AB /* DAStoreListVC.m */,
+				C5A82E4B191F9C6E00F4D9AB /* DAShowAlert.h */,
+				C5A82E4C191F9C6E00F4D9AB /* DAShowAlert.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -405,6 +415,7 @@
 			files = (
 				C517F02119150C2C00ED3E07 /* main.m in Sources */,
 				C517F0741916BC7D00ED3E07 /* StoreMaster.m in Sources */,
+				C5A82E4D191F9C6E00F4D9AB /* DAShowAlert.m in Sources */,
 				C517F0721916BC7D00ED3E07 /* _StoreMaster.m in Sources */,
 				C517F0711916BC7D00ED3E07 /* _Bills.m in Sources */,
 				C517F0731916BC7D00ED3E07 /* Bills.m in Sources */,
@@ -412,6 +423,7 @@
 				C5A82E47191F63E500F4D9AB /* NSManagedObjectContext+ContextSwitching.m in Sources */,
 				C517F06819159CE000ED3E07 /* DASaveMyBillsVC.m in Sources */,
 				C517F02E19150C2C00ED3E07 /* DAIntroductionVC.m in Sources */,
+				C5A82E4A191F708700F4D9AB /* DAStoreListVC.m in Sources */,
 				C517F05019150F7300ED3E07 /* DAImageCaptureVC.m in Sources */,
 				C517F02519150C2C00ED3E07 /* DAAppDelegate.m in Sources */,
 				C517F0651915594B00ED3E07 /* scanBills.xcdatamodeld in Sources */,

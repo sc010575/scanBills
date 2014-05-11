@@ -58,9 +58,9 @@
         if (success) {
             
             NSLog(@"Store  created successfully");
-            //            dispatch_async(dispatch_get_main_queue(), ^{
-            //                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CATALOG_FINISHED_PARSING object:nil];
-            //            });
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_STORE_CREATED object:nil];
+            });
         }
         
     }];

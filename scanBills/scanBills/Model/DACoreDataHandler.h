@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define NOTIFICATION_STORE_CREATED @"NotificationStoreCreated"
+
 @class Bills;
 @interface DACoreDataHandler : NSObject
 
