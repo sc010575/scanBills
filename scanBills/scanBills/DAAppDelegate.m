@@ -7,12 +7,18 @@
 //
 
 #import "DAAppDelegate.h"
+#import "DACoreDataHandler.h"
 
 @implementation DAAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    [DACoreDataHandler setupCoreData];
+    
+    //check if it is the first launch or not
+    if(![DACoreDataHandler isCoreDataExits])
+        NSLog(@"First launch");
+    
     return YES;
 }
 							

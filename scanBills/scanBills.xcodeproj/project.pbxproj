@@ -46,6 +46,7 @@
 		C517F0731916BC7D00ED3E07 /* Bills.m in Sources */ = {isa = PBXBuildFile; fileRef = C517F06E1916BC7D00ED3E07 /* Bills.m */; };
 		C517F0741916BC7D00ED3E07 /* StoreMaster.m in Sources */ = {isa = PBXBuildFile; fileRef = C517F0701916BC7D00ED3E07 /* StoreMaster.m */; };
 		C517F0771917974F00ED3E07 /* DACoreDataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = C517F0761917974F00ED3E07 /* DACoreDataHandler.m */; };
+		C5A82E47191F63E500F4D9AB /* NSManagedObjectContext+ContextSwitching.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A82E45191F63E400F4D9AB /* NSManagedObjectContext+ContextSwitching.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,8 @@
 		C517F0701916BC7D00ED3E07 /* StoreMaster.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreMaster.m; sourceTree = "<group>"; };
 		C517F0751917974E00ED3E07 /* DACoreDataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DACoreDataHandler.h; sourceTree = "<group>"; };
 		C517F0761917974F00ED3E07 /* DACoreDataHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DACoreDataHandler.m; sourceTree = "<group>"; };
+		C5A82E45191F63E400F4D9AB /* NSManagedObjectContext+ContextSwitching.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSManagedObjectContext+ContextSwitching.m"; sourceTree = "<group>"; };
+		C5A82E46191F63E400F4D9AB /* NSManagedObjectContext+ContextSwitching.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSManagedObjectContext+ContextSwitching.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,6 +237,8 @@
 		C517F0621915594B00ED3E07 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C5A82E45191F63E400F4D9AB /* NSManagedObjectContext+ContextSwitching.m */,
+				C5A82E46191F63E400F4D9AB /* NSManagedObjectContext+ContextSwitching.h */,
 				C517F0691916BC7D00ED3E07 /* _Bills.h */,
 				C517F06A1916BC7D00ED3E07 /* _Bills.m */,
 				C517F06B1916BC7D00ED3E07 /* _StoreMaster.h */,
@@ -404,6 +409,7 @@
 				C517F0711916BC7D00ED3E07 /* _Bills.m in Sources */,
 				C517F0731916BC7D00ED3E07 /* Bills.m in Sources */,
 				C517F0771917974F00ED3E07 /* DACoreDataHandler.m in Sources */,
+				C5A82E47191F63E500F4D9AB /* NSManagedObjectContext+ContextSwitching.m in Sources */,
 				C517F06819159CE000ED3E07 /* DASaveMyBillsVC.m in Sources */,
 				C517F02E19150C2C00ED3E07 /* DAIntroductionVC.m in Sources */,
 				C517F05019150F7300ED3E07 /* DAImageCaptureVC.m in Sources */,
@@ -657,6 +663,7 @@
 				C517F05A1915388D00ED3E07 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

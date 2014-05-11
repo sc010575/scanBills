@@ -8,6 +8,7 @@ const struct BillsAttributes BillsAttributes = {
 	.billDescription = @"billDescription",
 	.billImage = @"billImage",
 	.billNumber = @"billNumber",
+	.billTitle = @"billTitle",
 };
 
 const struct BillsRelationships BillsRelationships = {
@@ -97,6 +98,13 @@ const struct BillsFetchedProperties BillsFetchedProperties = {
 - (void)setPrimitiveBillNumberValue:(int16_t)value_ {
 	[self setPrimitiveBillNumber:[NSNumber numberWithShort:value_]];
 }
+
+
+
+
+
+@dynamic billTitle;
+
 
 
 

@@ -9,6 +9,7 @@
 #import "DACoreDataHandler.h"
 #import <KCOrderedAccessorFix/NSManagedObjectModel+KCOrderedAccessorFix.h>
 #import "StoreMaster.h"
+#import "Bills.h"
 
 @implementation DACoreDataHandler
 
@@ -33,12 +34,49 @@
 {
     NSArray * storeList = [StoreMaster MR_findAllSortedBy:@"storeName" ascending:YES];
     return storeList;
-
-}
-
-+ (void)createNewStoreAndAddBill:(Bills*) bill
-{
     
 }
+
++ (void)createNewStore:(NSString*)storeName andBill:(NSString*) billTitle description:(NSString*) description withImage:(NSData*) imageData
+{
+    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+        // Add new data
+        long newStoreNumber = [DACoreDataHandler getBillNumberForStore:storeName] + 1;
+        Bills * newBill = [Bills createInContext:localContext];
+        newBill.billTitle = billTitle;
+        newBill.billDescription =description;
+        newBill.billDate = [NSDate date];
+        newBill.billImage = imageData;
+        newBill.billNumber = [NSNumber numberWithLong:newStoreNumber];
+        
+        StoreMaster * store = [StoreMaster createInContext:localContext];
+        store.storeName = storeName;
+        NSSet * billSet = [NSSet setWithObject:newBill];
+        store.bills = billSet;
+    }completion:^(BOOL success, NSError *error) {
+        
+        if (success) {
+            
+            NSLog(@"Store  created successfully");
+            //            dispatch_async(dispatch_get_main_queue(), ^{
+            //                [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_CATALOG_FINISHED_PARSING object:nil];
+            //            });
+        }
+        
+    }];
+    
+}
+
++ (long) getBillNumberForStore:(NSString*)storeName
+{
+    NSPredicate *storePredicate = [NSPredicate predicateWithFormat:@"storeName == %@", storeName];
+    
+    StoreMaster * store = [StoreMaster MR_findFirstWithPredicate:storePredicate];
+    NSSet * bill = store.bills;
+    long totalBillCount = bill.count;
+    
+    return totalBillCount;
+}
+
 
 @end

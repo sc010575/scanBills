@@ -9,6 +9,7 @@ extern const struct BillsAttributes {
 	__unsafe_unretained NSString *billDescription;
 	__unsafe_unretained NSString *billImage;
 	__unsafe_unretained NSString *billNumber;
+	__unsafe_unretained NSString *billTitle;
 } BillsAttributes;
 
 extern const struct BillsRelationships {
@@ -19,6 +20,7 @@ extern const struct BillsFetchedProperties {
 } BillsFetchedProperties;
 
 @class StoreMaster;
+
 
 
 
@@ -82,6 +84,16 @@ extern const struct BillsFetchedProperties {
 
 
 
+@property (nonatomic, strong) NSString* billTitle;
+
+
+
+//- (BOOL)validateBillTitle:(id*)value_ error:(NSError**)error_;
+
+
+
+
+
 @property (nonatomic, strong) StoreMaster *store;
 
 //- (BOOL)validateStore:(id*)value_ error:(NSError**)error_;
@@ -122,6 +134,12 @@ extern const struct BillsFetchedProperties {
 
 - (int16_t)primitiveBillNumberValue;
 - (void)setPrimitiveBillNumberValue:(int16_t)value_;
+
+
+
+
+- (NSString*)primitiveBillTitle;
+- (void)setPrimitiveBillTitle:(NSString*)value;
 
 
 

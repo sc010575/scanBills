@@ -7,12 +7,14 @@
 //
 
 #import "DASaveMyBillsVC.h"
+#import "DACoreDataHandler.h"
+#import "Bills.h"
 
-@interface DASaveMyBillsVC ()
+@interface DASaveMyBillsVC ()<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *storeName;
 @property (weak, nonatomic) IBOutlet UITextField *billTitle;
 @property (weak, nonatomic) IBOutlet UITextField *description;
-@property (weak, nonatomic) IBOutlet UIButton *svaveBtn;
+@property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *storeImage;
 
@@ -35,6 +37,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.storeName becomeFirstResponder];
+    self.saveBtn.enabled = NO;
+    self.storeName.delegate = self;
+    self.billTitle.delegate = self;
+    self.description.delegate = self;
     // Do any additional setup after loading the view.
 }
 
@@ -61,7 +68,22 @@
 }
 */
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+		[textField resignFirstResponder];
+        return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if([self.storeName.text length] != 0 || [self.billTitle.text length] != 0 )
+        self.saveBtn.enabled = YES;
+}
+
+
 - (IBAction)onSaveAction:(id)sender {
+    
+    [self.storeName resignFirstResponder];
+    [DACoreDataHandler createNewStore:self.storeName.text andBill:self.billTitle.text description:self.description.text withImage:UIImagePNGRepresentation(self.storeImage.image)];
 }
 
 - (IBAction)onCancelAction:(id)sender {

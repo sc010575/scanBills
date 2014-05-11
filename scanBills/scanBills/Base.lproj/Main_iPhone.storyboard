@@ -31,7 +31,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2p-x5-ZpG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2p-x5-ZpG">
                                 <rect key="frame" x="20" y="441" width="280" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="STHeitiTC-Medium" family="Heiti TC" pointSize="20"/>
@@ -55,7 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-290" y="-1987"/>
+            <point key="canvasLocation" x="-218" y="-2359"/>
         </scene>
         <!--Image CaptureVC-->
         <scene sceneID="Eut-wm-GXS">
@@ -103,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="apk-JU-qCj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85" y="-1978"/>
+            <point key="canvasLocation" x="-191" y="-1442"/>
         </scene>
         <!--Save My BillsVC-->
         <scene sceneID="w6a-L8-6gF">
@@ -196,14 +196,14 @@
                         <outlet property="billTitle" destination="Db9-DZ-ygp" id="gxH-9k-FWd"/>
                         <outlet property="cancelBtn" destination="CfD-W7-gHs" id="7B3-Xq-Gu2"/>
                         <outlet property="description" destination="uxH-YN-Z4t" id="ArZ-kJ-8gK"/>
+                        <outlet property="saveBtn" destination="My9-pN-vZh" id="5Mo-lM-gA6"/>
                         <outlet property="storeImage" destination="pNA-Zb-x5j" id="MwT-DL-M1Y"/>
                         <outlet property="storeName" destination="xnM-Be-FgB" id="kMZ-Bw-b7x"/>
-                        <outlet property="svaveBtn" destination="My9-pN-vZh" id="nDZ-1c-8xN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBb-aL-fo1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="432" y="-1972"/>
+            <point key="canvasLocation" x="660" y="-2256"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
