@@ -9,6 +9,7 @@
 #import "DAStoreListVC.h"
 #import "DACoreDataHandler.h"
 #import "StoreMaster.h"
+#import "DABillDetailVC.h"
 
 @interface DAStoreListVC ()
 
@@ -124,6 +125,14 @@
     [tableView endUpdates];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"storeDetail" sender:self ];
+}
+
+
+
+
 
 /*
  // Override to support rearranging the table view.
@@ -141,15 +150,22 @@
  }
  */
 
-/*
+
  #pragma mark - Navigation
  
  // In a storyboard-based application, you will often want to do a little preparation before navigation
  - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
  {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
+     if([segue.identifier isEqualToString:@"storeDetail" ])
+         {
+             NSIndexPath *path= [self.tableView indexPathForSelectedRow];
+             StoreMaster * storeMaster = self.storeList[path.row];
+             NSArray * billList = [storeMaster.bills allObjects];
+             DABillDetailVC * billdetailVc = [segue destinationViewController];
+             billdetailVc.billLists = billList;
+             billdetailVc.store = storeMaster.storeName;
+         }
  }
- */
+ 
 
 @end
