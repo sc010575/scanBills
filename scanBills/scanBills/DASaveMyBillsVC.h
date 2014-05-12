@@ -10,4 +10,5 @@
 
 @interface DASaveMyBillsVC : UIViewController
 @property (strong, nonatomic) UIImage *imageToDisplay;
+@property (strong, nonatomic) NSString *barCodeValue;
 @end

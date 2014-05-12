@@ -37,7 +37,7 @@
     
 }
 
-+ (void)createNewStore:(NSString*)storeName andBill:(NSString*) billTitle description:(NSString*) description withImage:(NSData*) imageData
++ (void)addRecordToStore:(NSString*)storeName withBill:(NSString*) billTitle description:(NSString*) description withImage:(NSData*) imageData andBarCode:(NSString*) barCode
 {
     [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
         // Add new data
@@ -48,11 +48,20 @@
         newBill.billDate = [NSDate date];
         newBill.billImage = imageData;
         newBill.billNumber = [NSNumber numberWithLong:newStoreNumber];
+        newBill.barCode = barCode;
+        NSPredicate *storePredicate = [NSPredicate predicateWithFormat:@"storeName == %@", storeName];
         
-        StoreMaster * store = [StoreMaster createInContext:localContext];
-        store.storeName = storeName;
-        NSSet * billSet = [NSSet setWithObject:newBill];
-        store.bills = billSet;
+        StoreMaster * store = [StoreMaster MR_findFirstWithPredicate:storePredicate];
+        if(!store){
+            store = [StoreMaster createInContext:localContext];
+            store.storeName = storeName;
+            NSSet * billSet = [NSSet setWithObject:newBill];
+            store.bills = billSet;
+        }
+        else
+        {
+            [[store MR_inContext:localContext]  addBillsObject:newBill];
+        }
     }completion:^(BOOL success, NSError *error) {
         
         if (success) {

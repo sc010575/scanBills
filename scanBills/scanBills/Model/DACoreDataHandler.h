@@ -16,6 +16,6 @@
 + (void)setupCoreData;
 + (BOOL)isCoreDataExits;
 + (NSArray*)storeLists;
-+ (void)createNewStore:(NSString*)storeName andBill:(NSString*) billTitle description:(NSString*) description withImage:(NSData*) imageData;
++ (void)addRecordToStore:(NSString*)storeName withBill:(NSString*) billTitle description:(NSString*) description withImage:(NSData*) imageData andBarCode:(NSString*) barCode;
 + (long) getBillNumberForStore:(NSString*)storeName;
 @end

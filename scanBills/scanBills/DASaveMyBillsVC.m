@@ -17,9 +17,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *saveBtn;
 @property (weak, nonatomic) IBOutlet UIButton *cancelBtn;
 @property (weak, nonatomic) IBOutlet UIImageView *storeImage;
+@property (weak, nonatomic) IBOutlet UILabel *barCode;
 
 - (IBAction)onSaveAction:(id)sender;
-- (IBAction)onCancelAction:(id)sender;
 
 @end
 
@@ -56,6 +56,7 @@
 {
     [super viewWillAppear:animated];
     self.storeImage.image = self.imageToDisplay;
+    self.barCode.text = self.barCodeValue;
 }
 
 - (void)didReceiveMemoryWarning
@@ -90,7 +91,7 @@
 - (IBAction)onSaveAction:(id)sender {
     
     [self.storeName resignFirstResponder];
-    [DACoreDataHandler createNewStore:self.storeName.text andBill:self.billTitle.text description:self.description.text withImage:UIImagePNGRepresentation(self.storeImage.image)];
+    [DACoreDataHandler addRecordToStore:self.storeName.text withBill:self.billTitle.text description:self.description.text withImage:UIImagePNGRepresentation(self.storeImage.image) andBarCode:self.barCodeValue];
 }
 
 @end

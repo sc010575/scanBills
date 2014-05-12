@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Bills" representedClassName="Bills" syncable="YES">
+        <attribute name="barCode" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="billDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="billDescription" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="billImage" optional="YES" attributeType="Binary" syncable="YES"/>
@@ -13,7 +14,7 @@
         <relationship name="bills" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Bills" inverseName="store" inverseEntity="Bills" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Bills" positionX="1233" positionY="2160" width="128" height="135"/>
+        <element name="Bills" positionX="1233" positionY="2160" width="128" height="150"/>
         <element name="StoreMaster" positionX="1051" positionY="2106" width="128" height="73"/>
     </elements>
 </model>

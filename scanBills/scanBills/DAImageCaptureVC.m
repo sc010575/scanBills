@@ -12,12 +12,16 @@
 #import <AVFoundation/AVFoundation.h>
 #import "DASaveMyBillsVC.h"
 
-@interface DAImageCaptureVC ()
+@interface DAImageCaptureVC ()<AVCaptureMetadataOutputObjectsDelegate>
+
 @property (strong, nonatomic) AVCaptureVideoPreviewLayer *previewLayer;
-@property (weak, nonatomic) IBOutlet UIButton *scanBtn;
+@property (strong, nonatomic) AVCaptureMetadataOutput *output;
 @property (strong, nonatomic) AVCaptureSession *session;
 @property (strong, nonatomic) AVCaptureStillImageOutput *stillImageOutput;
+@property (weak, nonatomic)   IBOutlet UIButton *scanBtn;
 @property (strong, nonatomic) UIImage * scannedImage;
+@property (strong, nonatomic) UIView  *highlightView;
+@property (strong, nonatomic) NSString *barCodeValue;
 
 - (IBAction)captureImage:(id) sender;
 
@@ -28,12 +32,15 @@
     
 }
 
-#pragma mark camera
+#pragma mark AVCaptureSession and camera
 
 - (void)startCamera
 {
-	// start capturing frames
 	// Create the AVCapture Session
+    
+    if(self.session)
+        [self stopCamera];
+    
 	self.session = [[AVCaptureSession alloc] init];
 	
 	// create a preview layer to show the output from the camera
@@ -54,15 +61,23 @@
 	} else {
         [self.session addInput:cameraInput];
         [self.session setSessionPreset:AVCaptureSessionPresetPhoto];
+        
+        _output = [[AVCaptureMetadataOutput alloc] init];
+        [_output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];
+        [_session addOutput:_output];
+        _output.metadataObjectTypes = [_output availableMetadataObjectTypes];
+        
+        self.stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
+        NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys: AVVideoCodecJPEG, AVVideoCodecKey, nil];
+        [self.stillImageOutput setOutputSettings:outputSettings];
+        
+        [self.session addOutput:self.stillImageOutput];
+
         [self.session startRunning];
     }
-    
-    self.stillImageOutput = [[AVCaptureStillImageOutput alloc] init];
-    NSDictionary *outputSettings = [[NSDictionary alloc] initWithObjectsAndKeys: AVVideoCodecJPEG, AVVideoCodecKey, nil];
-    [self.stillImageOutput setOutputSettings:outputSettings];
-    
-    [self.session addOutput:self.stillImageOutput];
+    [self.view bringSubviewToFront:_highlightView];
 }
+
 
 - (void)stopCamera
 {
@@ -95,15 +110,27 @@
     [self stopCamera];
     self.scannedImage = nil;
     [super viewWillDisappear:YES];
+    self.scanBtn.hidden = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     self.scannedImage = nil;
+    self.scanBtn.hidden = YES;
+    [self createHighlightView];
     [self startCamera];
+    
 }
 
+- (void) createHighlightView
+{
+    _highlightView = [[UIView alloc] init];
+    _highlightView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin|UIViewAutoresizingFlexibleLeftMargin|UIViewAutoresizingFlexibleRightMargin|UIViewAutoresizingFlexibleBottomMargin;
+    _highlightView.layer.borderColor = [UIColor greenColor].CGColor;
+    _highlightView.layer.borderWidth = 3;
+    [self.view addSubview:_highlightView];
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -133,45 +160,82 @@
     
     [self.stillImageOutput captureStillImageAsynchronouslyFromConnection:videoConnection completionHandler: ^(CMSampleBufferRef imageSampleBuffer, NSError *error)
      {
-         CFDictionaryRef exifAttachments = CMGetAttachment( imageSampleBuffer, kCGImagePropertyExifDictionary, NULL);
+//         CFDictionaryRef exifAttachments = CMGetAttachment( imageSampleBuffer, kCGImagePropertyExifDictionary, NULL);
          if(imageSampleBuffer != nil){
-         NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
-         self.scannedImage = [[UIImage alloc] initWithData:imageData];
-         [self performSegueWithIdentifier:@"saveMyBill" sender:sender];
+             NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageSampleBuffer];
+             self.scannedImage = [[UIImage alloc] initWithData:imageData];
+             [self performSegueWithIdentifier:@"saveMyBill" sender:sender];
          }
          
      }];
 }
 
+#pragma mark - AVCaptureConnection delegate
+
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
+{
+    CGRect highlightViewRect = CGRectZero;
+    AVMetadataMachineReadableCodeObject *barCodeObject;
+    NSString *detectionString = nil;
+    NSArray *barCodeTypes = @[AVMetadataObjectTypeUPCECode, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode39Mod43Code,
+                              AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeEAN8Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeCode128Code,
+                              AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeQRCode, AVMetadataObjectTypeAztecCode];
+    
+    for (AVMetadataObject *metadata in metadataObjects) {
+        for (NSString *type in barCodeTypes) {
+            if ([metadata.type isEqualToString:type])
+            {
+                barCodeObject = (AVMetadataMachineReadableCodeObject *)[self.previewLayer transformedMetadataObjectForMetadataObject:(AVMetadataMachineReadableCodeObject *)metadata];
+                highlightViewRect = barCodeObject.bounds;
+                detectionString = [(AVMetadataMachineReadableCodeObject *)metadata stringValue];
+                break;
+            }
+        }
+        
+        if (detectionString != nil)
+        {
+            _barCodeValue = detectionString;
+            self.scanBtn.hidden = NO;
+            [self.view bringSubviewToFront:self.scanBtn];
+            break;
+        }
+        else
+            _barCodeValue = @"Not found";
+    }
+    
+    _highlightView.frame = highlightViewRect;
+}
 
 
- #pragma mark - Navigation
+
+#pragma mark - Navigation
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {
-if ([identifier isEqualToString:@"saveMyBill"])
-{
-    return (self.scannedImage != nil)?YES:NO;
-}
+    if ([identifier isEqualToString:@"saveMyBill"])
+    {
+        return (self.scannedImage != nil)?YES:NO;
+    }
     return YES;
 }
 
 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
-     NSString *segueIdentifier = [segue identifier];
-
-     if ([segueIdentifier isEqualToString:@"saveMyBill"])
-     {
-      if (self.scannedImage != nil)
-      {
-        DASaveMyBillsVC *saveMyBillVC = segue.destinationViewController;
-         saveMyBillVC.imageToDisplay = self.scannedImage;
-      }
-         
-     }
- }
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSString *segueIdentifier = [segue identifier];
+    
+    if ([segueIdentifier isEqualToString:@"saveMyBill"])
+    {
+        if (self.scannedImage != nil)
+        {
+            DASaveMyBillsVC *saveMyBillVC = segue.destinationViewController;
+            saveMyBillVC.imageToDisplay = self.scannedImage;
+            saveMyBillVC.barCodeValue = self.barCodeValue;
+        }
+        
+    }
+}
 
 
 @end

@@ -4,6 +4,7 @@
 #import "_Bills.h"
 
 const struct BillsAttributes BillsAttributes = {
+	.barCode = @"barCode",
 	.billDate = @"billDate",
 	.billDescription = @"billDescription",
 	.billImage = @"billImage",
@@ -52,6 +53,13 @@ const struct BillsFetchedProperties BillsFetchedProperties = {
 
 	return keyPaths;
 }
+
+
+
+
+@dynamic barCode;
+
+
 
 
 

@@ -5,6 +5,7 @@
 
 
 extern const struct BillsAttributes {
+	__unsafe_unretained NSString *barCode;
 	__unsafe_unretained NSString *billDate;
 	__unsafe_unretained NSString *billDescription;
 	__unsafe_unretained NSString *billImage;
@@ -27,6 +28,7 @@ extern const struct BillsFetchedProperties {
 
 
 
+
 @interface BillsID : NSManagedObjectID {}
 @end
 
@@ -35,6 +37,16 @@ extern const struct BillsFetchedProperties {
 + (NSString*)entityName;
 + (NSEntityDescription*)entityInManagedObjectContext:(NSManagedObjectContext*)moc_;
 - (BillsID*)objectID;
+
+
+
+
+
+@property (nonatomic, strong) NSString* barCode;
+
+
+
+//- (BOOL)validateBarCode:(id*)value_ error:(NSError**)error_;
 
 
 
@@ -109,6 +121,12 @@ extern const struct BillsFetchedProperties {
 @end
 
 @interface _Bills (CoreDataGeneratedPrimitiveAccessors)
+
+
+- (NSString*)primitiveBarCode;
+- (void)setPrimitiveBarCode:(NSString*)value;
+
+
 
 
 - (NSDate*)primitiveBillDate;
