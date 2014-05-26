@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "StoreMaster.h"
 
 @interface DABillDetailVC : UICollectionViewController
-@property (strong, nonatomic) NSArray * billLists;
-@property (strong, nonatomic) NSString * store;
+@property (strong, nonatomic) StoreMaster * storeMaster;
 @end

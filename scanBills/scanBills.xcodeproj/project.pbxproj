@@ -50,6 +50,13 @@
 		C5A82E4A191F708700F4D9AB /* DAStoreListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A82E49191F708700F4D9AB /* DAStoreListVC.m */; };
 		C5A82E4D191F9C6E00F4D9AB /* DAShowAlert.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A82E4C191F9C6E00F4D9AB /* DAShowAlert.m */; };
 		C5A82E50191FDC5B00F4D9AB /* DABillDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5A82E4F191FDC5B00F4D9AB /* DABillDetailVC.m */; };
+		C5C84F5D19216739009221F4 /* Placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C84F5C19216739009221F4 /* Placeholder.png */; };
+		C5C84F601923FAA0009221F4 /* DASingleViewDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C84F5F1923FAA0009221F4 /* DASingleViewDetailVC.m */; };
+		C5C84F64192779E1009221F4 /* photo-frame-2.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C84F61192779E1009221F4 /* photo-frame-2.png */; };
+		C5C84F65192779E1009221F4 /* photo-frame.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C84F62192779E1009221F4 /* photo-frame.png */; };
+		C5C84F66192779E1009221F4 /* pic_frame.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C84F63192779E1009221F4 /* pic_frame.png */; };
+		C5C84F6819277B19009221F4 /* footer_banner.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C84F6719277B19009221F4 /* footer_banner.png */; };
+		C5C84F6B19278105009221F4 /* DABillViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C84F6A19278105009221F4 /* DABillViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +116,15 @@
 		C5A82E4C191F9C6E00F4D9AB /* DAShowAlert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAShowAlert.m; sourceTree = "<group>"; };
 		C5A82E4E191FDC5B00F4D9AB /* DABillDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DABillDetailVC.h; sourceTree = "<group>"; };
 		C5A82E4F191FDC5B00F4D9AB /* DABillDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DABillDetailVC.m; sourceTree = "<group>"; };
+		C5C84F5C19216739009221F4 /* Placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Placeholder.png; sourceTree = "<group>"; };
+		C5C84F5E1923FAA0009221F4 /* DASingleViewDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DASingleViewDetailVC.h; sourceTree = "<group>"; };
+		C5C84F5F1923FAA0009221F4 /* DASingleViewDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DASingleViewDetailVC.m; sourceTree = "<group>"; };
+		C5C84F61192779E1009221F4 /* photo-frame-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-frame-2.png"; sourceTree = "<group>"; };
+		C5C84F62192779E1009221F4 /* photo-frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photo-frame.png"; sourceTree = "<group>"; };
+		C5C84F63192779E1009221F4 /* pic_frame.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pic_frame.png; sourceTree = "<group>"; };
+		C5C84F6719277B19009221F4 /* footer_banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = footer_banner.png; sourceTree = "<group>"; };
+		C5C84F6919278105009221F4 /* DABillViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DABillViewCell.h; sourceTree = "<group>"; };
+		C5C84F6A19278105009221F4 /* DABillViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DABillViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +261,10 @@
 				C5A82E4C191F9C6E00F4D9AB /* DAShowAlert.m */,
 				C5A82E4E191FDC5B00F4D9AB /* DABillDetailVC.h */,
 				C5A82E4F191FDC5B00F4D9AB /* DABillDetailVC.m */,
+				C5C84F5E1923FAA0009221F4 /* DASingleViewDetailVC.h */,
+				C5C84F5F1923FAA0009221F4 /* DASingleViewDetailVC.m */,
+				C5C84F6919278105009221F4 /* DABillViewCell.h */,
+				C5C84F6A19278105009221F4 /* DABillViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -274,9 +294,23 @@
 		C5A82E51191FEB5600F4D9AB /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				C5C84F5B19216739009221F4 /* Images  */,
 			);
 			name = Resource;
 			path = scanBills/Resource;
+			sourceTree = SOURCE_ROOT;
+		};
+		C5C84F5B19216739009221F4 /* Images  */ = {
+			isa = PBXGroup;
+			children = (
+				C5C84F6719277B19009221F4 /* footer_banner.png */,
+				C5C84F61192779E1009221F4 /* photo-frame-2.png */,
+				C5C84F62192779E1009221F4 /* photo-frame.png */,
+				C5C84F63192779E1009221F4 /* pic_frame.png */,
+				C5C84F5C19216739009221F4 /* Placeholder.png */,
+			);
+			name = "Images ";
+			path = "scanBills/Images ";
 			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
@@ -359,10 +393,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C5C84F5D19216739009221F4 /* Placeholder.png in Resources */,
 				C517F02B19150C2C00ED3E07 /* Main_iPad.storyboard in Resources */,
 				C517F03019150C2C00ED3E07 /* Images.xcassets in Resources */,
+				C5C84F64192779E1009221F4 /* photo-frame-2.png in Resources */,
 				C517F02819150C2C00ED3E07 /* Main_iPhone.storyboard in Resources */,
 				C517F01F19150C2C00ED3E07 /* InfoPlist.strings in Resources */,
+				C5C84F6819277B19009221F4 /* footer_banner.png in Resources */,
+				C5C84F66192779E1009221F4 /* pic_frame.png in Resources */,
+				C5C84F65192779E1009221F4 /* photo-frame.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,8 +479,10 @@
 				C517F02E19150C2C00ED3E07 /* DAIntroductionVC.m in Sources */,
 				C5A82E4A191F708700F4D9AB /* DAStoreListVC.m in Sources */,
 				C517F05019150F7300ED3E07 /* DAImageCaptureVC.m in Sources */,
+				C5C84F6B19278105009221F4 /* DABillViewCell.m in Sources */,
 				C517F02519150C2C00ED3E07 /* DAAppDelegate.m in Sources */,
 				C517F0651915594B00ED3E07 /* scanBills.xcdatamodeld in Sources */,
+				C5C84F601923FAA0009221F4 /* DASingleViewDetailVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

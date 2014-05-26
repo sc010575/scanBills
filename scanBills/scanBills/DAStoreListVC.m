@@ -85,14 +85,17 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.tintColor = [UIColor redColor];
     }
     
-    if(self.storeList.count == 0)
+    if(self.storeList.count == 0){
         cell.textLabel.text = @"No store created";
+        cell.accessoryType = UITableViewCellAccessoryNone;
+
+    }
     else{
         StoreMaster * store = self.storeList[indexPath.row];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         cell.textLabel.text = store.storeName;
     }
     
@@ -159,11 +162,8 @@
      if([segue.identifier isEqualToString:@"storeDetail" ])
          {
              NSIndexPath *path= [self.tableView indexPathForSelectedRow];
-             StoreMaster * storeMaster = self.storeList[path.row];
-             NSArray * billList = [storeMaster.bills allObjects];
              DABillDetailVC * billdetailVc = [segue destinationViewController];
-             billdetailVc.billLists = billList;
-             billdetailVc.store = storeMaster.storeName;
+             billdetailVc.storeMaster = self.storeList[path.row];
          }
  }
  
