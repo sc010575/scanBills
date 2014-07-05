@@ -67,6 +67,20 @@
 			remoteGlobalIDString = C517F01019150C2C00ED3E07;
 			remoteInfo = scanBills;
 		};
+		C5B797131967F230004EA970 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C517F00919150C2C00ED3E07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C517F01019150C2C00ED3E07;
+			remoteInfo = scanBills;
+		};
+		C5B797151967F234004EA970 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C517F00919150C2C00ED3E07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C517F01019150C2C00ED3E07;
+			remoteInfo = scanBills;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -347,6 +361,8 @@
 			);
 			dependencies = (
 				C517F03B19150C2C00ED3E07 /* PBXTargetDependency */,
+				C5B797141967F230004EA970 /* PBXTargetDependency */,
+				C5B797161967F234004EA970 /* PBXTargetDependency */,
 			);
 			name = scanBillsTests;
 			productName = scanBillsTests;
@@ -501,6 +517,16 @@
 			isa = PBXTargetDependency;
 			target = C517F01019150C2C00ED3E07 /* scanBills */;
 			targetProxy = C517F03A19150C2C00ED3E07 /* PBXContainerItemProxy */;
+		};
+		C5B797141967F230004EA970 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C517F01019150C2C00ED3E07 /* scanBills */;
+			targetProxy = C5B797131967F230004EA970 /* PBXContainerItemProxy */;
+		};
+		C5B797161967F234004EA970 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C517F01019150C2C00ED3E07 /* scanBills */;
+			targetProxy = C5B797151967F234004EA970 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
